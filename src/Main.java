@@ -4,7 +4,6 @@ public class Main {
      */
     public static String getScore(int player1Score, int player2Score) {
         String score = "";
-        int tempScore=0;
 
         if (player1Score == player2Score) {
             score = puntuacionEmpate(player1Score);
@@ -15,29 +14,42 @@ public class Main {
         }
         else
         {
-            for (int i=1; i<3; i++)
+            score = puntuacionSinEmpate(player1Score, player2Score, score);
+        }
+    return score;
+    }
+
+    private static String puntuacionSinEmpate(int player1Score, int player2Score, String score) {
+        int tempScore;
+        for (int i = 1; i<3; i++)
+        {
+
+            if (i==1){
+                tempScore = player1Score;}
+            else {
+                score +="-"; tempScore = player2Score;}
+
+            switch(tempScore)
             {
-                if (i==1) tempScore = player1Score;
-                else { score+="-"; tempScore = player2Score;}
-                switch(tempScore)
-                {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
-                }
+                case 0:
+                    score += "Love";
+                    break;
+                case 1:
+                    score += "Fifteen";
+                    break;
+                case 2:
+                    score += "Thirty";
+                    break;
+                case 3:
+                    score += "Forty";
+                    break;
+                default:
+                    score += "ERROR";
+                    break;
             }
 
         }
-    return score;
+        return score;
     }
 
     private static String jugadorConVentajaOGanador(int player1Score, int player2Score) {
