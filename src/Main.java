@@ -11,11 +11,7 @@ public class Main {
         }
         else if (player1Score >=4 || player2Score >=4)
         {
-            int diferencia = player1Score-player2Score;
-            if (diferencia==1) score ="Advantage player1";
-            else if (diferencia ==-1) score ="Advantage player2";
-            else if (diferencia>=2) score = "Win for player1";
-            else score ="Win for player2";
+            score = jugadorConVentajaOGanador(player1Score, player2Score);
         }
         else
         {
@@ -44,27 +40,33 @@ public class Main {
     return score;
     }
 
-    private static String puntuacionEmpate(int player1Score) {
-        String score;
-        switch (player1Score)
-        {
-            case 0:
-                score = "Love-All";
-                break;
-            case 1:
-                score = "Fifteen-All";
-                break;
-            case 2:
-                score = "Thirty-All";
-                break;
-            case 3:
-                score = "Forty-All";
-                break;
-            default:
-                score = "Deuce";
-                break;
+    private static String jugadorConVentajaOGanador(int player1Score, int player2Score) {
 
-        }
+        int diferencia = player1Score - player2Score;
+
+        if (diferencia == 1) {
+            return "Advantage player1";}
+        else if (diferencia == -1){
+            return "Advantage player2";}
+        else if (diferencia >= 2){
+            return  "Win for player1";}
+        else{
+            return "Win for player2";}
+
+    }
+
+    private static String puntuacionEmpate(int player1Score) {
+
+        String score = switch (player1Score) {
+
+            case 0 -> "Love-All";
+            case 1 -> "Fifteen-All";
+            case 2 -> "Thirty-All";
+            case 3 -> "Forty-All";
+            default -> "Deuce";
+
+        };
+
         return score;
     }
 }
