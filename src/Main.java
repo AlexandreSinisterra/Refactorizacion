@@ -3,21 +3,29 @@ public class Main {
      * metodo para devolver la puntuacion de tenis
      */
     public static String getScore(int player1Score, int player2Score) {
-        String score = "";
 
         if (player1Score == player2Score) {
-            score = puntuacionEmpate(player1Score);
+            return puntuacionEmpate(player1Score);
         }
-        else if (player1Score >=4 || player2Score >=4)
-        {
-            score = jugadorConVentajaOGanador(player1Score, player2Score);
+        else if (player1Score >=4 || player2Score >=4) {
+            return jugadorConVentajaOGanador(player1Score, player2Score);
         }
-        else
-        {
-            score = puntuacionSinEmpate(player1Score, player2Score);
+        else {
+            return puntuacionSinEmpate(player1Score, player2Score);
         }
+    }
 
-    return score;
+    private static String puntuacionEmpate(int player1Score) {
+
+        return switch (player1Score) {
+
+            case 0 -> "Love-All";
+            case 1 -> "Fifteen-All";
+            case 2 -> "Thirty-All";
+            case 3 -> "Forty-All";
+            default -> "Deuce";
+
+        };
     }
 
     private static String puntuacionSinEmpate(int player1Score, int player2Score) {
@@ -54,18 +62,5 @@ public class Main {
         else{
             return "Win for player2";}
         //aqui pense en hacer un switch pero por culpa del >=2 seria complicado
-    }
-
-    private static String puntuacionEmpate(int player1Score) {
-
-        return switch (player1Score) {
-
-            case 0 -> "Love-All";
-            case 1 -> "Fifteen-All";
-            case 2 -> "Thirty-All";
-            case 3 -> "Forty-All";
-            default -> "Deuce";
-
-        };
     }
 }
