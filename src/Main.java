@@ -69,7 +69,7 @@ public class Main {
 
     private static String puntuacionEmpate(int player1Score) {
 
-        String score = switch (player1Score) {
+        return switch (player1Score) {
 
             case 0 -> "Love-All";
             case 1 -> "Fifteen-All";
@@ -78,7 +78,5 @@ public class Main {
             default -> "Deuce";
 
         };
-
-        return score;
     }
 }
