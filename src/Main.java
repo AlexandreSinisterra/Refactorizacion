@@ -7,25 +7,7 @@ public class Main {
         int tempScore=0;
 
         if (player1Score == player2Score) {
-            switch (player1Score)
-            {
-                case 0:
-                    score = "Love-All";
-                    break;
-                case 1:
-                    score = "Fifteen-All";
-                    break;
-                case 2:
-                    score = "Thirty-All";
-                    break;
-                case 3:
-                    score = "Forty-All";
-                    break;
-                default:
-                    score = "Deuce";
-                    break;
-
-            }
+            score = puntuacionEmpate(player1Score);
         }
         else if (player1Score >=4 || player2Score >=4)
         {
@@ -60,5 +42,29 @@ public class Main {
 
         }
     return score;
+    }
+
+    private static String puntuacionEmpate(int player1Score) {
+        String score;
+        switch (player1Score)
+        {
+            case 0:
+                score = "Love-All";
+                break;
+            case 1:
+                score = "Fifteen-All";
+                break;
+            case 2:
+                score = "Thirty-All";
+                break;
+            case 3:
+                score = "Forty-All";
+                break;
+            default:
+                score = "Deuce";
+                break;
+
+        }
+        return score;
     }
 }
