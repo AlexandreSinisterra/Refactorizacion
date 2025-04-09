@@ -14,14 +14,15 @@ public class Main {
         }
         else
         {
-            score = puntuacionSinEmpate(player1Score, player2Score, score);
+            score = puntuacionSinEmpate(player1Score, player2Score);
         }
+
     return score;
     }
 
-    private static String puntuacionSinEmpate(int player1Score, int player2Score, String puntuacionDelJuego) {
+    private static String puntuacionSinEmpate(int player1Score, int player2Score) {
 
-            puntuacionDelJuego = posiblesPuntuaciones(player1Score);
+        String puntuacionDelJuego = posiblesPuntuaciones(player1Score);
             puntuacionDelJuego += posiblesPuntuaciones(player2Score);
 
         return puntuacionDelJuego;
@@ -52,7 +53,7 @@ public class Main {
             return  "Win for player1";}
         else{
             return "Win for player2";}
-
+        //aqui pense en hacer un switch pero por culpa del >=2 seria complicado
     }
 
     private static String puntuacionEmpate(int player1Score) {
