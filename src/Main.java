@@ -31,7 +31,7 @@ public class Main {
     private static String puntuacionSinEmpate(int player1Score, int player2Score) {
 
         String puntuacionDelJuego = posiblesPuntuaciones(player1Score);
-            puntuacionDelJuego += posiblesPuntuaciones(player2Score);
+            puntuacionDelJuego += "-" +  posiblesPuntuaciones(player2Score);
 
         return puntuacionDelJuego;
     }
