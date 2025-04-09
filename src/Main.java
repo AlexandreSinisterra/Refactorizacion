@@ -20,37 +20,24 @@ public class Main {
     }
 
     private static String puntuacionSinEmpate(int player1Score, int player2Score, String puntuacionDelJuego) {
-        int puntuacionJugador;
-        for (int i = 1; i<3; i++)
-        {
 
-            if (i==1){
-                puntuacionJugador = player1Score;}
-            else {
-                puntuacionDelJuego += "-";
-                puntuacionJugador = player2Score;}
+            puntuacionDelJuego = posiblesPuntuaciones(player1Score);
+            puntuacionDelJuego += posiblesPuntuaciones(player2Score);
 
-            switch(puntuacionJugador)
-            {
-                case 0:
-                    puntuacionDelJuego += "Love";
-                    break;
-                case 1:
-                    puntuacionDelJuego += "Fifteen";
-                    break;
-                case 2:
-                    puntuacionDelJuego += "Thirty";
-                    break;
-                case 3:
-                    puntuacionDelJuego += "Forty";
-                    break;
-                default:
-                    puntuacionDelJuego += "ERROR";
-                    break;
-            }
-
-        }
         return puntuacionDelJuego;
+    }
+
+    private static String posiblesPuntuaciones(int puntuacionJugador) {
+
+        return switch (puntuacionJugador) {
+
+            case 0 -> "Love";
+            case 1 -> "Fifteen";
+            case 2 -> "Thirty";
+            case 3 -> "Forty";
+            default -> "ERROR";
+
+        };
     }
 
     private static String jugadorConVentajaOGanador(int player1Score, int player2Score) {
