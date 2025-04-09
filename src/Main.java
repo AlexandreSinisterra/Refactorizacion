@@ -20,16 +20,16 @@ public class Main {
     }
 
     private static String puntuacionSinEmpate(int player1Score, int player2Score, String score) {
-        int tempScore;
+        int puntuacionJugador;
         for (int i = 1; i<3; i++)
         {
 
             if (i==1){
-                tempScore = player1Score;}
+                puntuacionJugador = player1Score;}
             else {
-                score +="-"; tempScore = player2Score;}
+                score +="-"; puntuacionJugador = player2Score;}
 
-            switch(tempScore)
+            switch(puntuacionJugador)
             {
                 case 0:
                     score += "Love";
